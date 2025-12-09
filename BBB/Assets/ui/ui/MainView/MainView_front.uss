@@ -1,0 +1,57 @@
+* {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Medium.otf?fileID=12800000&guid=78f6dd525bc634b11b2870e44f7eef9a&type=3#Pretendard-Medium');
+    font-size: 16px;
+}
+
+.font-regular {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Regular.otf?fileID=12800000&guid=9e215d0e14a0449329308d9e5b0edb5f&type=3#Pretendard-Regular');
+}
+
+.font-bold {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Bold.otf?fileID=12800000&guid=4f0628533fea042a88ab895ad9931710&type=3#Pretendard-Bold');
+}
+
+#root {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    padding: 32px;
+    /* 완전 투명 배경 */
+    background-color: rgba(0,0,0,0);
+    /* 가운데 정렬 레이아웃 */
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 72px;
+    -unity-text-align: middle-center;
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+
+.menu-subtitle {
+    position: absolute;
+    top: 12px; right: 16px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-btn {
+    width: 260px; height: 44px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: rgba(0,0,0,0.35);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.25);
+}
+
+.menu-btn:hover { background-color: rgba(255, 255, 255, 0.5); }
+.menu-btn:active { background-color: rgba(0,0,0,0.65); }

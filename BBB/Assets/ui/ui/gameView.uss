@@ -1,0 +1,737 @@
+* {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Medium.otf?fileID=12800000&guid=78f6dd525bc634b11b2870e44f7eef9a&type=3#Pretendard-Medium');
+    font-size: 16px;
+}
+
+.font-regular {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Regular.otf?fileID=12800000&guid=9e215d0e14a0449329308d9e5b0edb5f&type=3#Pretendard-Regular');
+}
+
+.font-bold {
+    -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Bold.otf?fileID=12800000&guid=4f0628533fea042a88ab895ad9931710&type=3#Pretendard-Bold');
+}
+
+/*ScrollView 안의 스크롤러 UI 감추기 */
+.unity-scroller { display: none; }
+.unity-slider   { display: none; }
+/* 화살표 버튼 숨김 */
+.unity-scroller__low-button { display: none; }
+.unity-scroller__high-button { display: none; }
+
+/* UI Toolkit 버전별 입력 텍스트 선택자 모두 대응 */
+#input_qty .unity-text-field__input,
+#input_qty .unity-base-text-field__input,
+#input_qty .unity-text-input,
+#input_qty TextElement {
+    -unity-text-align: middle-center; /* 좌측 정렬 */
+    padding-left: 0;                /* 좌측 여백 제거 */
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 런타임 테마가 .unity-button을 주입하므로 특이성 올려서 확실히 덮기 */
+Button.btn-plain,
+.unity-button {
+  border-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+
+  border-color: transparent;
+  background-color: transparent;     /* 배경색도 제거 */
+  background-image: none;            /* 스프라이트 테마 사용 시 */
+  -unity-background-image-tint-color: transparent;
+
+}
+
+/* 호버/액티브/포커스 상태에서도 변화 없게 */
+Button.btn-plain:hover,
+.unity-button.btn-plain:hover,
+Button.btn-plain:active,
+.unity-button.btn-plain:active,
+Button.btn-plain:focus,
+.unity-button.btn-plain:focus {
+  border-width: 0;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+/* 비활성화도 동일하게(선택) */
+Button.btn-plain:disabled,
+.unity-button.btn-plain:disabled {
+  opacity: 1;                 /* 기본 반투명화 방지하려면 */
+}
+
+
+/*전체 배경*/
+.app {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background-color: rgb(242, 242, 247);
+}
+
+/*탑 타이머*/
+.topbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 24px;
+    background-color: rgb(0, 0, 0);
+}
+
+#timer_fill{
+    height: 100%;
+    background-color: red;
+}
+
+.topbar_timer {
+    position: absolute;
+    left: 40px;
+    width: 60px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    -unity-text-align: middle-left;
+    font-size: 14px;
+    color: rgb(255, 255, 255); 
+}
+
+/* 상단 사용자 대시보드*/
+.dashboard {
+    position: absolute;
+    left: 40px;
+    top: 34px;
+    width: 710px;
+    height: 140px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    flex-direction: row;
+}
+
+#dashboard_left{
+    width: 420px;
+    height: 140px;
+}
+
+#dashboard_top_row, #dashboard_low_row{
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;   
+}
+
+#dashboard_top_row{
+    height: 50px;
+}
+
+#dashboard_low_row{
+    height: 90px;
+}
+
+.dashboard_date {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-left;
+}
+
+.dashboard_term {
+    font-size: 15px;
+    color: rgb(128, 128, 128);
+     -unity-text-align: middle-left;
+}
+
+#player_info, #player_asset, #player_asset_diff, #player_item{
+    align-items: center;
+     -unity-text-align: middle-left;
+     margin-left: 10px;
+}
+
+#player_info{
+    width: 60px;
+    margin: 0;
+}
+
+.player_name {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player_image {
+    margin: 0 auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: rgb(217, 217, 217);
+}
+
+#player_asset{
+     align-items: center;
+     -unity-text-align: middle-left;
+     margin-left: 10px;
+}
+
+.player_asset_label {
+    width: 100px;
+    height: 14px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.player_asset_value {
+    width: 130px;
+    height: 20px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+#player_asset_diff{
+    flex-direction: column;
+    margin: 0;
+}
+
+.player_asset_diff_label {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: rgb(142, 142, 147);
+}
+
+.player_asset_diff_value {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+}
+
+#player_item{
+    flex-direction: row;
+    margin: 20px;
+    width: 240px;
+    justify-content: space-between;
+}
+
+.player_item_empty {
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: gray;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#player_item_1,
+#player_item_2,
+#player_item_3{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+/*주식창*/
+
+#stock_panel{
+    position: absolute;
+    left: 40px;
+    top: 184px;
+    width: 710px;
+    height: 856px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+#ticker_info{
+    flex-direction: row;
+    height: 68px;
+}
+
+.ticker_image {
+    margin-left: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: gray;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+#ticker{
+    flex-direction: column;
+}
+#ticker_name{
+    flex-direction: row;
+}
+.ticker_ko {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+.ticker_eng {
+    font-size: 14px;
+    color: rgb(142, 142, 147);
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.price {
+    width: 100px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+
+.stock_diff {
+    width: 520px;
+    flex-direction: row;
+    -unity-text-align: middle-left;
+}
+
+.stock_diff_label {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: rgb(142, 142, 147);
+}
+
+.stock_diff_value {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+/*호가창*/
+.card_title{
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 16px;
+    -unity-text-align: middle-center;
+}
+
+#order_panel {
+    position: absolute;
+    left: 760px;
+    top: 184px;
+    width: 450px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order_label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.input {
+    width: 200px;
+    height: 20px;
+    border-radius: 8px;
+    background-color: rgb(217, 217, 217);
+    -unity-text-align: middle-right;
+}
+
+.button_wrap{
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+/* 공통: 기본 테마 테두리 제거 + 모양 */
+Button#button_buy,
+.unity-button#button_buy,
+Button#button_sell,
+.unity-button#button_sell {
+  width: 100px;
+  height: 25px;
+  border-radius: 8px;
+  font-size: 15px;
+
+  border-width: 1px;                 /* 테두리 두께(호버 때 보임) */
+  border-color: transparent;         /* 기본은 숨김 */
+  background-image: none;            /* 테마 배경 제거 */
+  -unity-background-image-tint-color: transparent;
+}
+
+/* 기본 색상 (채움 버튼) */
+Button#button_buy,
+.unity-button#button_buy {
+  background-color: rgb(231, 76, 60);    /* 붉은색 */
+  color: rgb(255, 255, 255);
+}
+Button#button_sell,
+.unity-button#button_sell {
+  background-color: rgb(41, 128, 185);   /* 파란색 */
+  color: rgb(255, 255, 255);
+}
+
+/* Hover: 배경을 옅게, 테두리/글자는 원래 배경색으로 */
+Button#button_buy:hover,
+.unity-button#button_buy:hover {
+  background-color: rgb(244, 130, 118);  /* buy hover(조금 밝게) */
+  border-color:   rgb(231, 76, 60);
+}
+
+Button#button_sell:hover,
+.unity-button#button_sell:hover {
+  background-color: rgb(93, 165, 212);   /* sell hover(조금 밝게) */
+  border-color:   rgb(41, 128, 185);
+}
+
+/* Active(클릭 중): 더 진하게 */
+Button#button_buy:active,
+.unity-button#button_buy:active {
+  background-color: rgb(192, 57, 43);    /* buy active(진하게) */
+  border-color:     rgb(192, 57, 43);
+  color:            rgb(255, 255, 255);  /* 눌렀을 땐 가독성 위해 다시 흰색 */
+}
+Button#button_sell:active,
+.unity-button#button_sell:active {
+  background-color: rgb(31, 97, 141);    /* sell active(진하게) */
+  border-color:     rgb(31, 97, 141);
+  color:            rgb(255, 255, 255);
+}
+
+/* Focus: 포커스 링 대신 테두리만 표시(선택사항) */
+Button#button_buy:focus,
+.unity-button#button_buy:focus {
+  border-color: rgb(231, 76, 60);
+}
+Button#button_sell:focus,
+.unity-button#button_sell:focus {
+  border-color: rgb(41, 128, 185);
+}
+
+/* Disabled(선택): 흐리게 */
+Button#button_buy:disabled,
+.unity-button#button_buy:disabled,
+Button#button_sell:disabled,
+.unity-button#button_sell:disabled {
+  opacity: 0.5;
+}
+
+
+/*보유주식 리스트*/
+
+#owned_stock_panel {
+    position: absolute;
+    left: 760px;
+    top: 494px;
+    width: 450px;
+    height: 204px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;        
+    overflow: hidden;
+}
+
+#owned_stock_panel > ScrollView.owned_list,
+#owned_stock_panel > .unity-scroll-view.owned_list,
+#stock_list_panel > ScrollView.stock_list,
+#stock_list_panel > .unity-scroll-view.stock_list, 
+#news_panel > ScrollView.news_list,
+#news_panel > .unity-scroll-view.news_list,{
+  flex-grow: 1;
+  width: 100%;
+  /* 기본 배경 투명하게(원하면 유지) */
+  background-color: rgba(0,0,0,0);
+  border-width: 0;
+}
+
+/*주식 리스트*/
+#stock_list_panel {
+    position: absolute;
+    left: 760px;
+    top: 708px;
+    width: 450px;
+    height: 334px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;        
+    overflow: hidden;
+}
+
+/*주식 리스트 아이템*/
+.list_item{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.ticker_list_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: gray;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.ticker_list_name_kor{
+    font-size: 16px;
+    width: 80px;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ticker_list_name_eng{
+    font-size: 16px;
+    width: 60px;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*뉴스 창*/
+
+#news_panel {
+    position: absolute;
+    left: 1220px;
+    top: 184px;
+    width: 660px;
+    height: 856px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.news_item {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.news_title {
+    font-size: 16px;
+}
+
+.news_date {
+    font-size: 12px;
+}
+
+.news_body {
+    font-size: 12px;
+    -unity-text-align: upper-left;
+}
+
+.divider {
+    margin-top: 5px;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+}
+
+/* 팀 대시보드 */
+#team_dashboard {
+    position: absolute;
+    left: 760px;
+    top: 34px;
+    width: 1120px;
+    height: 140px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    flex-direction: row;
+    padding: 10px;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.team_1,  .team_2, .team_3, .team_4{
+    width: 250px;
+    height: 120px;
+    border-radius: 8px;
+    border-width: 1px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.team_1 {
+    border-left-color: rgb(239, 191, 4);
+    border-right-color: rgb(239, 191, 4);
+    border-top-color: rgb(239, 191, 4);
+    border-bottom-color: rgb(239, 191, 4);
+}
+
+.team_2{
+    border-left-color: rgb(196, 196, 196);
+    border-right-color: rgb(196, 196, 196);
+    border-top-color: rgb(196, 196, 196);
+    border-bottom-color: rgb(196, 196, 196);
+}
+
+.team_3 {
+    border-left-color: rgb(109, 59, 7);
+    border-right-color: rgb(109, 59, 7);
+    border-top-color: rgb(109, 59, 7);
+    border-bottom-color: rgb(109, 59, 7);
+}
+
+.team_4 {
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.team_info, .team_vline, .team_points{
+    flex-direction: column;
+}
+
+.team_info{
+    align-items: center;
+    flex-direction: column;
+    width: 80px;
+}
+
+.team_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
+    background-color: gray;
+    flex-shrink: 0;
+}
+
+
+.team_name {
+    -unity-text-align: middle-center;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.team_value {
+    -unity-text-align: middle-center;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.team_player {
+    -unity-text-align: middle-center;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
+
+
+
+.team_vline {
+    height: 100px;
+    border-left-color:rgb(0,0,0);
+    border-width: 1px;
+}
+
+.team_life_num {
+    font-size: 30px;
+    margin: 0;
+}
+
+/*글로벌 설정*/
+
+Label {
+    white-space: normal;
+}
+
+.diff_value_down {
+    color: rgb(0, 122, 255);
+}
+
+.diff_value_up {
+    color: rgb(255, 59, 48);
+}
+
+/*모달*/
+#result_modal {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 0; top: 0; right: 0; bottom: 0;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  -unity-font-definition: url('project://database/Assets/ui/Fonts/Pretendard-Medium.otf?fileID=12800000&guid=78f6dd525bc634b11b2870e44f7eef9a&type=3#Pretendard-Medium');
+}
+
+#modal_backdrop {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#modal_dialog {
+  position: relative;
+  width: 520px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex; 
+  flex-direction: column; 
+}
+
+#modal_title{
+    font-size: 60px;
+    -unity-text-align: middle-center;
+    margin-bottom: 10px;
+}
+
+#modal_body{
+    align-items: center;
+    flex-direction: column;
+}
+
+#modal_body .team_1,
+#modal_body .team_2,
+#modal_body .team_3,
+#modal_body .team_4,{
+    background-color: #ffffff;
+    width: 400px;
+    margin: 10px;
+    color: #000000;
+    border-width: 3px;
+}
+
+#team_1_result,
+#team_2_result,
+#team_3_result,
+#team_4_result{
+    -unity-text-align: middle-left;
+    padding-left: 10px;
+    width: 150px;
+    height: 80px;
+    font-size: 42px;
+}
+
+.success{
+    color: rgb(255, 59, 48);
+}
+
+.fail{
+    color: rgb(0, 122, 255);
+}
+
+.hidden { display: none; }

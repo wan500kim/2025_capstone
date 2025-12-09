@@ -1,0 +1,9 @@
+#bg {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-image: url('project://database/Assets/Resources/bg.png');
+    -unity-background-scale-mode: scale-and-crop;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+#chart_viewport { overflow: hidden; }

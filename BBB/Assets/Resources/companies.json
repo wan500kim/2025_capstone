@@ -1,0 +1,60 @@
+{
+  "industries": [
+    {
+      "industry_id": "IND00",
+      "industry_name": "전체"
+    },
+    {
+      "industry_id": "IND01",
+      "industry_name": "IT/소프트웨어"
+    },
+    {
+      "industry_id": "IND02",
+      "industry_name": "에너지/환경"
+    },
+    {
+      "industry_id": "IND03",
+      "industry_name": "바이오/제약"
+    },
+    {
+      "industry_id": "IND04",
+      "industry_name": "소비재/리테일"
+    },
+    {
+      "industry_id": "IND05",
+      "industry_name": "미디어/엔터테인먼트"
+    }
+  ],
+  "companies": [
+    {
+      "id": "COMP01",
+      "kor_name": "엠비디아",
+      "ticker": "MVD",
+      "industry_id": "IND01"
+    },
+    {
+      "id": "COMP02",
+      "kor_name": "에코퓨처스",
+      "ticker": "ECF",
+      "industry_id": "IND02"
+    },
+    {
+      "id": "COMP03",
+      "kor_name": "무한양행",
+      "ticker": "MYH",
+      "industry_id": "IND03"
+    },
+    {
+      "id": "COMP04",
+      "kor_name": "바이마트",
+      "ticker": "BYM",
+      "industry_id": "IND04"
+    },
+    {
+      "id": "COMP05",
+      "kor_name": "에그이즈고잉",
+      "ticker": "EGG",
+      "industry_id": "IND05"
+    }
+  ]
+}

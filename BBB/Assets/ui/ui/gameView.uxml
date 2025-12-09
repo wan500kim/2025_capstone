@@ -1,0 +1,199 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui/ui/gameView.uss?fileID=7433441132597879392&amp;guid=2f9df6bb5f1114c6481f7753813e342c&amp;type=3#gameView" />
+    <Style src="project://database/Assets/ui/ui/CandleChart.uss?fileID=7433441132597879392&amp;guid=d017cdb77148e4d60976d864573d5b11&amp;type=3#CandleChart" />
+    <ui:VisualElement name="app-root" picking-mode="Ignore" class="app">
+        <ui:VisualElement name="topbar" class="topbar">
+            <ui:VisualElement name="timer_fill" />
+            <ui:Label name="timer" text="02:36" class="topbar_timer" />
+        </ui:VisualElement>
+        <ui:VisualElement name="dashboard" class="dashboard">
+            <ui:VisualElement name="dashboard_left">
+                <ui:VisualElement name="dashboard_top_row">
+                    <ui:Label text="2000. 00. 00." class="dashboard_date" />
+                    <ui:Label text="(0년차 0분기)" class="dashboard_term" />
+                </ui:VisualElement>
+                <ui:VisualElement name="dashboard_low_row">
+                    <ui:VisualElement name="player_info">
+                        <ui:VisualElement class="player_image" />
+                        <ui:Label text="Player01" class="player_name" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="player_asset">
+                        <ui:Label text="추정 자산" class="player_asset_label" />
+                        <ui:Label text="$1,234.56" class="player_asset_value" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="player_asset_diff">
+                        <ui:Label text="9월 20일보다 " class="player_asset_diff_label" />
+                        <ui:Label text="-$120.43(8.4%)" class="player_asset_diff_value diff_value_down" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="player_item">
+                <ui:VisualElement name="player_item_1" class="player_item_empty" />
+                <ui:VisualElement name="player_item_2" class="player_item_empty" />
+                <ui:VisualElement name="player_item_3" class="player_item_empty" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="stock_panel">
+            <ui:VisualElement name="ticker_info">
+                <ui:VisualElement class="ticker_image" />
+                <ui:VisualElement name="ticker">
+                    <ui:VisualElement name="ticker_name">
+                        <ui:Label text="주식회사1" class="ticker_ko" />
+                        <ui:Label text="JUSIC" class="ticker_eng" />
+                    </ui:VisualElement>
+                    <ui:Label text="$1,311.32" class="price" />
+                </ui:VisualElement>
+                <ui:VisualElement class="stock_diff">
+                    <ui:Label text="9월 20일보다 " class="stock_diff_label" />
+                    <ui:Label text="+$7.16(2.0%)" class="stock_diff_value diff_value_up" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="chart_container" class="chart_container" />
+        </ui:VisualElement>
+        <ui:VisualElement name="order_panel">
+            <ui:Label text="주문하기" name="card_title" />
+            <ui:Label text="시장가" class="order_label" />
+            <ui:Label text="$100" class="order_price" />
+            <ui:Label text="수량" class="order_label" />
+            <ui:IntegerField name="input_qty" class="input" />
+            <ui:Label text="주문 수량:   0주" class="order_label order_summary_qty" />
+            <ui:Label text="주문 가능 금액:   $100" class="order_label player_cash" />
+            <ui:Label text="주문 총액:   $100" class="order_label order_summary_total" />
+            <ui:VisualElement class="button_wrap">
+                <ui:Button name="button_buy" class="sfx_hover" text="구 매" />
+                <ui:Button name="button_sell" class="sfx_hover" text="판 매" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="owned_stock_panel">
+            <ui:Label text="보유주식" class="card_title" />
+            <ui:ScrollView name="owned_list" mode="Vertical" vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" class="owned_list">
+                <ui:VisualElement class="list_item">
+                    <ui:VisualElement class="ticker_list_img" />
+                    <ui:Label text="주식이름1231" class="ticker_list_name_kor" />
+                    <ui:Label text="TICHER" class="ticker_list_name_eng" />
+                    <ui:Label text="$9,99" class="list_price" />
+                    <ui:Label text="+$123(9.7%)" class="diff_value_up" />
+                    <ui:Label text="2주" class="ticker_amount" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="stock_list_panel">
+            <ui:Label text="주식회사 목록" class="card_title" />
+            <ui:ScrollView name="stock_list" mode="Vertical" vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" class="stock_list">
+                <ui:VisualElement class="list_item">
+                    <ui:VisualElement class="ticker_list_img" />
+                    <ui:Label text="주식이름1231" class="ticker_list_name_kor" />
+                    <ui:Label text="TICHER" class="ticker_list_name_eng" />
+                    <ui:Label text="$9,99" class="list_price" />
+                    <ui:Label text="+$123(9.7%)" class="diff_value_up" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="news_panel">
+            <ui:Label text="뉴스" class="card_title" />
+            <ui:ScrollView name="news_list" mode="Vertical" vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" class="news_list" />
+        </ui:VisualElement>
+        <ui:VisualElement name="team_dashboard">
+            <ui:VisualElement class="team_1 team_first">
+                <ui:VisualElement class="team_info">
+                    <ui:VisualElement name="team_1_img" class="team_img" />
+                    <ui:Label text="Player 1" name="team_1_name" class="team_name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="team_vline" />
+                <ui:VisualElement name="team_point">
+                    <ui:Label text="$4,312.12 / $100,000" name="team_1_value" class="team_value" />
+                    <ui:Label text="♡100" name="team_1_life_num" class="team_life_num" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="team_2 team_second">
+                <ui:VisualElement class="team_info">
+                    <ui:VisualElement name="team_2_img" class="team_img" />
+                    <ui:Label text="Player 2" name="team_2_name" class="team_name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="team_vline" />
+                <ui:VisualElement name="team_point">
+                    <ui:Label text="$4,312.12 / $100,000" name="team_2_value" class="team_value" />
+                    <ui:Label text="♡90" name="team_2_life_num" class="team_life_num" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="team_3 team_third">
+                <ui:VisualElement class="team_info">
+                    <ui:VisualElement name="team_3_img" class="team_img" />
+                    <ui:Label text="Player 3" name="team_3_name" class="team_name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="team_vline" />
+                <ui:VisualElement name="team_point">
+                    <ui:Label text="$4,312.12 / $100,000" name="team_3_value" class="team_value" />
+                    <ui:Label text="♡80" name="team_3_life_num" class="team_life_num" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="team_4 team_fifth">
+                <ui:VisualElement class="team_info">
+                    <ui:VisualElement name="team_4_img" class="team_img" />
+                    <ui:Label text="Player 4" name="team_4_name" class="team_name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="team_vline" />
+                <ui:VisualElement name="team_point">
+                    <ui:Label text="$4,312.12 / $100,000" name="team_4_value" class="team_value" />
+                    <ui:Label text="♡70" name="team_4_life_num" class="team_life_num" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="result_modal" class="hidden">
+        <ui:VisualElement name="modal_backdrop"/>
+        <ui:VisualElement name="modal_dialog">
+            <ui:Label name="modal_title" text="라운드 결과"/>
+            <ui:VisualElement name="modal_body">
+                <ui:VisualElement class="team_1 team_first">
+                    <ui:VisualElement class="team_info">
+                        <ui:VisualElement name="team_1_img" class="team_img" />
+                        <ui:Label text="Player 1" name="team_1_name" class="team_name" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="team_vline" />
+                    <ui:VisualElement name="team_point">
+                        <ui:Label text="$4,312.12 / $100,000" name="team_1_value" class="team_value" />
+                        <ui:Label text="♡100" name="team_1_life_num" class="team_life_num" />
+                    </ui:VisualElement>
+                    <ui:Label name="team_1_result" class="success" text="성공!"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="team_2 team_second">
+                    <ui:VisualElement class="team_info">
+                        <ui:VisualElement name="team_2_img" class="team_img" />
+                        <ui:Label text="Player 2" name="team_2_name" class="team_name" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="team_vline" />
+                    <ui:VisualElement name="team_point">
+                        <ui:Label text="$4,312.12 / $100,000" name="team_2_value" class="team_value" />
+                        <ui:Label text="♡90" name="team_2_life_num" class="team_life_num" />
+                    </ui:VisualElement>
+                    <ui:Label name="team_2_result" class="fail" text="실패..."/>
+                </ui:VisualElement>
+                <ui:VisualElement class="team_3 team_third">
+                    <ui:VisualElement class="team_info">
+                        <ui:VisualElement name="team_3_img" class="team_img" />
+                        <ui:Label text="Player 3" name="team_3_name" class="team_name" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="team_vline" />
+                    <ui:VisualElement name="team_point">
+                        <ui:Label text="$4,312.12 / $100,000" name="team_3_value" class="team_value" />
+                        <ui:Label text="♡80" name="team_3_life_num" class="team_life_num" />
+                    </ui:VisualElement>
+                    <ui:Label name="team_3_result" class="fail" text="실패..."/>
+                </ui:VisualElement>
+                <ui:VisualElement class="team_4 team_fifth">
+                    <ui:VisualElement class="team_info">
+                        <ui:VisualElement name="team_4_img" class="team_img" />
+                        <ui:Label text="Player 4" name="team_4_name" class="team_name" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="team_vline" />
+                    <ui:VisualElement name="team_point">
+                        <ui:Label text="$4,312.12 / $100,000" name="team_4_value" class="team_value" />
+                        <ui:Label text="♡70" name="team_4_life_num" class="team_life_num" />
+                    </ui:VisualElement>
+                    <ui:Label name="team_4_result" class="fail" text="실패..."/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

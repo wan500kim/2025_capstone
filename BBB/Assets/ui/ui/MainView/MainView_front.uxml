@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui/ui/MainView/MainView_front.uss" />
+    <ui:VisualElement name="root">
+        <ui:VisualElement name="blur_wall" picking-mode="Ignore" style="position:absolute; left:0; top:0; right:0; bottom:0; opacity:1;" />
+        <ui:Label name="title" text="Buy By Bye" class="title font-bold sfx_hover sfx_click"/>
+        <ui:Button name="btn_start" text="게임 시작" class="menu-btn sfx_hover sfx_click"/>
+        <ui:Button name="btn_quit" text="종료" class="menu-btn sfx_hover sfx_click"/>
+        <!-- 필요시 우측 상단 상태표시 -->
+        <ui:Label name="subtitle" text="v1.0.0" class="menu-subtitle"/>
+    </ui:VisualElement>
+</ui:UXML>

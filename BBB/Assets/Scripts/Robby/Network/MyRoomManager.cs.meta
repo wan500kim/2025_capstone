@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d7175b77bda3e9b4fbc15f32f296d57d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - transport: {instanceID: 0}
+  - authenticator: {instanceID: 0}
+  - playerPrefab: {fileID: 6176030620499331531, guid: 9c5f821d445040c4aab477fa6175498f, type: 3}
+  - roomPlayerPrefab: {instanceID: 0}
+  - fallbackGamePlayerPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

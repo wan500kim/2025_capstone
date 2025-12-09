@@ -1,0 +1,110 @@
+/* 외부 컨테이너 크기(원하면 gameView.uxml의 class="chart_container"에 적용) */
+.chart_container {
+  width: 660px;
+  height: 660px;
+}
+
+/* 내부 루트 */
+.chart_root {
+  width: 100%;
+  height: 100%;
+  padding: 12px;              /* 안쪽 유효 높이 = 700 - 24 = 676 */
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* 플롯/거래량 패널 */
+.plot_area,
+.volume_area {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+
+  /* border 축약 없이 개별 지정 */
+  border-top-width: 1px;    border-top-color: #eef2f6;
+  border-right-width: 1px;  border-right-color: #eef2f6;
+  border-bottom-width: 1px; border-bottom-color: #eef2f6;
+  border-left-width: 1px;   border-left-color: #eef2f6;
+}
+
+/* 높이 합: 548 + 8 + 120 = 676 → padding 포함 전체 700에 딱 맞음 */
+.plot_area  { height: 508px; }
+.volume_area{ height: 120px; margin-top: 8px; }
+
+/* 그리드 라인 */
+.grid_h, .grid_v {
+  position: absolute;
+  background-color: #f2f5f9;
+}
+
+/* 캔들/심지 */
+.candle_body, .candle_wick { position: absolute; border-radius: 1px; }
+.candle_body.up   { background-color: #e74b4b; } /* 상승=빨강 */
+.candle_body.down { background-color: #2b6cff; } /* 하락=파랑 */
+.candle_wick              { width: 2px; }
+.candle_wick.up           { background-color: #e74b4b; }
+.candle_wick.down         { background-color: #2b6cff; }
+
+/* 거래량 */
+.vol_bar { position: absolute; border-radius: 2px; opacity: .6; }
+
+/* 축/라벨(오른쪽 정렬) */
+.axis_label {
+  position: absolute;
+  font-size: 11px;
+  color: #98a1ab;
+  -unity-text-align: middle-right;
+  opacity: .95;
+}
+.axis_label--right { right: 4px; }
+
+/* 툴팁(어두운 박스) */
+.tooltip {
+  position: absolute;
+  top: 8px; left: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background-color: rgba(28, 32, 38, 0.96);
+  color: #e9eef6;
+  font-size: 12px;
+  display: none;
+
+  border-top-width: 1px;    border-top-color: #161a20;
+  border-right-width: 1px;  border-right-color: #161a20;
+  border-bottom-width: 1px; border-bottom-color: #161a20;
+  border-left-width: 1px;   border-left-color: #161a20;
+}
+.tooltip.show { display: flex; }
+
+/* 십자선 */
+.cross_v, .cross_h { position: absolute; background-color: rgba(210,215,222,.9); }
+.cross_v { width: 1px; height: 100%; top: 0; }
+.cross_h { height: 1px; width: 100%; left: 0; }
+
+/* 가격/시간 말풍선(플롯 내부에 붙임) */
+.pill {
+  position: absolute;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #0f141a;
+  background-color: #ffffff;
+
+  border-top-width: 1px;    border-top-color: #e8edf3;
+  border-right-width: 1px;  border-right-color: #e8edf3;
+  border-bottom-width: 1px; border-bottom-color: #e8edf3;
+  border-left-width: 1px;   border-left-color: #e8edf3;
+
+  border-radius: 4px;
+  display: none;
+}
+.pill.show { display: flex; }
+.price_pill { right: 0;  margin-right: 4px; }
+.time_pill  { bottom: 0; margin-bottom: 4px; }
+
+/* 거래량 */
+.vol_bar { position: absolute; border-radius: 2px; opacity: .6; }
+.vol_bar.up   { background-color: #f3b1b1; }  /* ← 추가: 상승 볼륨 색 */
+.vol_bar.down { background-color: #b7c9ff; }  /* ← 추가: 하락 볼륨 색 */

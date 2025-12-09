@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+  <ui:VisualElement name="chart_root" class="chart_root">
+    <ui:VisualElement name="plot_area" class="plot_area" />
+    <ui:VisualElement name="volume_area" class="volume_area" />
+    <ui:Label name="tooltip" class="tooltip" text="" />
+  </ui:VisualElement>
+</ui:UXML>
